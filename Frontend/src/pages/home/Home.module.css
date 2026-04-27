@@ -1,0 +1,21 @@
+/* HOME PAGE STYLES */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    transition: all 0.3s ease;
+}
+
+.title {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.description {
+    font-size: clamp(0.7rem, 0.8rem, 1rem);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+}

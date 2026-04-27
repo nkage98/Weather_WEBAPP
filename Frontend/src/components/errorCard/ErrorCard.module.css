@@ -1,0 +1,14 @@
+.errorCard {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    background-color: rgba(255, 162, 162, 0.507);
+    border-radius: 25px;
+    padding: 2rem;
+}
+
+.errorMessage {
+    font-size: 18px;
+}

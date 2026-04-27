@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+    flex-wrap: nowrap;
+}
+
+.forms {
+    position: relative;
+}
+
+.searchBar {
+    position: relative;
+}
+
+.searchBar_input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: rgba(245, 245, 245, 0.507);
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    width: min(85vw, 30rem);
+    color: white;
+    caret-color: white;
+    transition: all 0.2s ease;
+}
+
+.searchBar_input::placeholder {
+    color: white;
+}
+.searchBar_input:is(:hover, :focus) {
+    box-shadow: 0 0 0 2px #ccc;
+    outline: none;
+}
+
+.searchBar_input:active {
+    background: rgba(105, 105, 105, 0.753);
+    outline: none;
+}
+
+.searchBar_button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lupeIcon {
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+    color: #999;
+}
+
+.suggestions_ul {
+    position: absolute;
+    background-color: rgba(134, 134, 134, 0.527);
+    backdrop-filter: blur(4px);
+    display: none;
+    border-radius: 15px;
+    width: min(85vw, 30rem);
+    border: 1px solid #ccc;
+    padding: 0 0.2rem;
+    margin-top: 0.5rem;
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+    caret-color: transparent;
+}
+
+.suggestions_li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    cursor: pointer;
+    border-bottom: #ffffff solid 1px;
+}
+
+.suggestions_li:last-child {
+    border-bottom: none;
+}
+
+.suggestions_button {
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.suggestions_button:hover {
+    background-color: #c9c9c979;
+}
+
+.open {
+    transform: translateY(0);
+    display: block;
+    pointer-events: auto;
+}

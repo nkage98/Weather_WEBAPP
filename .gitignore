@@ -1,0 +1,40 @@
+# Dependency directories
+Backend/node_modules/
+# Optional npm cache directory
+Backend/.npm
+# dotenv environment variables file
+Backend/.env
+Backend/.env.test
+
+# Logs
+Backend/logs
+Backend/*.log
+Backend/npm-debug.log*
+Backend/yarn-debug.log*
+Backend/lerna-debug.log*
+
+# Diagnostic reports
+Backend/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Optional eslint cache
+Backend/.eslintcache
+Frontend/.eslintcache
+
+# Next.js build output
+Backend/.next
+Backend/out
+# Nuxt.js build / generate output
+Backend/.nuxt
+Backend/dist
+
+# Compiled binary addons
+Backend/build/Release
+
+Frontend/node_modules/
+Frontend/.npm
+Frontend/.env
+Frontend/.env.test
+Frontend/logs
+Frontend/*.log
+Frontend/npm-debug.log*
+

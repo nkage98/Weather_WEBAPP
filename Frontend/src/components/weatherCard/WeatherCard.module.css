@@ -1,0 +1,301 @@
+.card {
+    display: flex;
+    min-width: 50vw;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    width: clamp(350px, 80vw, 500px);
+    margin-bottom: 1rem;
+    height: 250px;
+    border-radius: 10px;
+    background-color: rgba(252, 240, 255, 0.116);
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.card:active {
+    transform: scale(0.99);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 160px;
+    overflow: hidden;
+}
+
+.toggle {
+    font-size: 28px;
+    line-height: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cityName {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.weather {
+    display: flex;
+    flex: wrap;
+    padding-top: 1rem;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2rem;
+    gap: 2rem;
+}
+
+.temp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.details {
+    margin-top: 1rem;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    min-width: 100%;
+    padding: 1rem 0 1rem 0;
+}
+
+.icon {
+    width: min(80px, 20vw);
+    height: min(80px, 20vw);
+}
+
+.currentTemp {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    font-size: clamp(3.5rem, 4rem, 5rem);
+}
+
+.currentTemp_span {
+    font-size: 2rem;
+}
+
+.sideInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.feelsLike {
+    color: rgba(240, 248, 255, 0.7);
+    white-space: nowrap;
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+}
+
+.details_ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 0rem;
+}
+
+.details_li {
+    flex-direction: column;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.detailsTitles {
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    color: rgba(240, 248, 255, 0.7);
+}
+
+.header_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.collapsed {
+    height: 70px;
+    min-height: 70px;
+    justify-content: center;
+}
+
+.expanded {
+    height: 250px;
+}
+
+.toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.arrow_after {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-right: 3px solid currentColor;
+    border-bottom: 3px solid currentColor;
+    color: white;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.arrow_before {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-right: 3px solid currentColor;
+    border-bottom: 3px solid currentColor;
+    color: white;
+    transform: rotate(-135deg);
+    transition: transform 0.3s ease;
+}
+
+.button_container {
+    background-color: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.details_button {
+    background-color: rgba(252, 240, 255, 0.116);
+    border-radius: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    color: white;
+}
+
+.details_button:hover {
+    background-color: rgba(252, 240, 255, 0.308);
+}
+
+.delete_button {
+    background-color: rgba(233, 79, 79, 0.342);
+    border-radius: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    color: white;
+}
+
+.delete_button:hover {
+    background-color: rgba(233, 79, 79, 0.685);
+}
+
+.collapsed .removeButton,
+.collapsed .card_container,
+.collapsed .weather,
+.collapsed .details,
+.collapsed .full {
+    display: none;
+}
+
+.collapsed .summary {
+    display: flex;
+}
+
+.expanded .summary {
+    display: none;
+}
+
+.expanded .weather,
+.expanded .details {
+    display: flex;
+}
+
+.expanded .full {
+    display: block;
+}
+
+.summary {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 40px;
+}
+
+.summaryLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.summaryIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.summaryTemp {
+    display: flex;
+    width: 125px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0.2rem;
+}
+
+.summaryTempMax {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.summaryTempMin {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.summaryTempMin span {
+    font-size: 1.2rem;
+    color: rgb(146, 184, 255);
+}
+
+.summaryProb {
+    display: flex;
+    font-size: 0.9rem;
+    width: 50px;
+    color: rgba(240, 248, 255, 0.7);
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .header {
+        width: 80px;
+        overflow: hidden;
+    }
+    .cityName {
+        font-size: 1rem;
+    }
+    .summaryLeft {
+        gap: 0.2rem;
+    }
+
+    .summaryTemp {
+        width: 110px;
+        gap: 0.1rem;
+    }
+}

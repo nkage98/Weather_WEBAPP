@@ -1,0 +1,67 @@
+.overlayStyle {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.modalStyle {
+    background-color: rgba(252, 240, 255, 0.822);
+    padding: 24px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.actionsStyle {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 15px;
+    border: rgb(146, 146, 146) 1px solid;
+    /* border: 1px solid #ccc; */
+    /* background: rgb(134, 174, 190); */
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.button:hover {
+    /* border: 1px solid #ffffff; */
+    transform: scaleX(1.05);
+}
+
+.deleteButton {
+    background-color: rgba(255, 0, 0, 0.726);
+    color: white;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Anima modal */
+@keyframes zoomIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
