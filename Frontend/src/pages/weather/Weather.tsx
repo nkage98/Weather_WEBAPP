@@ -7,6 +7,7 @@ import { Loader } from "@/components/loader/Loader";
 import { WeatherMap } from "@/components/WeatherMap";
 import { HourlyChart } from "@/components/hourlyChart/HourlyChart";
 import { ErrorCard } from "@/components/errorCard/ErrorCard";
+import styles from "./weather.module.css"
 
 function getIconUrl(icon: number) {
     const WEATHER_CODE_MAP: Record<number, { label: string; icon: string }> = {
@@ -87,8 +88,8 @@ export function Weather() {
 
     if (loading)
         return (
-            <div className="weather-page-container">
-                <div className="searchBar-container">
+            <div className={styles.container}>
+                <div className="">
                     <SearchBar />
                     <Loader />
                 </div>
@@ -97,8 +98,8 @@ export function Weather() {
 
     if (error && !data)
         return (
-            <div className="weather-page-container">
-                <div className="searchBar-container">
+            <div className={styles.container}>
+                <div className="">
                     <SearchBar />
                 </div>
                 <ErrorCard message={error || "An error occurred"} />
@@ -106,20 +107,20 @@ export function Weather() {
         );
 
     return (
-        <div className="weather-page-container">
-            <div className="searchBar-container">
+        <div className={styles.container}>
+            <div className="">
                 <SearchBar />
             </div>
 
-            <section className="weather-page-header">
+            <section className={styles.title}>
                 <div>
-                    <h2 className="weather-page_h2">{data?.name}</h2>
-                    <p className="weather-page_p">{data?.country}</p>
+                    <h2 className="">{data?.name}</h2>
+                    <p className="">{data?.country}</p>
                 </div>
-                <div className="favorite-button-container">
-                    <p className="favorite-button-container_p">save</p>
+                <div className={styles.favButton}>
+                    <p className={styles.favButton_p}>save</p>
                     <button
-                        className={`star-toggle ${isFaved ? "faved" : ""}`}
+                        className={`styles.star ${isFaved ? "faved" : ""}`}
                         disabled={loading}
                         onClick={() => handleFav(data.name)}
                         aria-label="Toggle favorite"
@@ -128,13 +129,13 @@ export function Weather() {
                     </button>
                 </div>
             </section>
-            <article className="current-container">
-                <section className="current-card">
-                    <h3 className="current-card_h3">Now</h3>
-                    <section className="current-weather">
-                        <div className="current-temp">
+            <article className={styles.current_container}>
+                <section className={styles.current_card}>
+                    <h3 className={styles.current_card_h3}>Now</h3>
+                    <section className={styles.current_weather}>
+                        <div className={styles.current_temp}>
                             <img
-                                className="current-temp-icon"
+                                className={styles.current_temp_icon}
                                 title={
                                     getIconUrl(data?.today.weathercode || 0).alt
                                 }
@@ -147,69 +148,65 @@ export function Weather() {
                                     getIconUrl(data?.today.weathercode || 0).alt
                                 }
                             />
-                            <p className="current-temp-value">
+                            <p className={styles.current_temp_value}>
                                 {data?.today.temperature || 0}
-                                <span className="current-temp-value_span">
+                                <span className={styles.current_temp_value_span}>
                                     °C
                                 </span>
                             </p>
                         </div>
-                        <div className="current-desc">
-                            <p className="current-desc-text">
+                        <div className={styles.current_desc}>
+                            <p className={styles.current_desc_text}>
                                 {getIconUrl(data?.today.weathercode || 0).alt}
                             </p>
-                            <p className="current-feels-like">
+                            <p className={styles.feelsLike}>
                                 Feels like{" "}
                                 {data?.today.apparent_temperature || 0}
                             </p>
                         </div>
                     </section>
 
-                    <section className="current-details">
-                        <ul className="current-details_ul">
-                            <li className="current-details_li">
-                                <p className="current-details-titles">Max</p>
+                    <section className={styles.current_details}>
+                        <ul className={styles.current_details_ul}>
+                            <li className={styles.current_details_li}>
+                                <p className={styles.current_details_titles}>Max</p>
                                 <p>{data?.today.max || 0}</p>
                             </li>
-                            <li className="current-details_li">
-                                <p className="current-details-titles">Min</p>
+                            <li className={styles.current_details_li}>
+                                <p className={styles.current_details_titles}>Min</p>
                                 <p>{data?.today.min || 0}</p>
                             </li>
 
-                            <li className="current-details_li">
-                                <p className="current-details-titles">
+                            <li className={styles.current_details_li}>
+                                <p className={styles.current_details_titles}>
                                     Probability
                                 </p>
-                                <p className="">
-                                    {data?.today.Probability || 0}
-                                </p>
+                                <p>{data?.today.Probability || 0}</p>
                             </li>
-                            <li className="current-details_li">
-                                <p className="current-details-titles">
+                            <li className={styles.current_details_li}>
+                                <p className={styles.current_details_titles}>
                                     Precipitation
                                 </p>
-                                <p className="">
-                                    {data?.today.precipitation || 0}
-                                </p>
+                                <p>{data?.today.precipitation || 0}</p>
                             </li>
 
-                            <li className="current-details_li">
-                                <p className="current-details-titles">
+                            <li className={styles.current_details_li}>
+                                <p className={styles.current_details_titles}>
                                     Humidity
                                 </p>
-                                <p className="current-humidity">
+                                <p className={styles.current_humidity}>
                                     {data?.today.humidity}
                                 </p>
                             </li>
-                            <li className="current-details_li">
-                                <p className="current-details-titles">Wind</p>
-                                <p className="">{data?.today.windSpeed}</p>
+                            <li className={styles.current_details_li}>
+                                <p className={styles.current_details_titles}>Wind</p>
+                                <p>{data?.today.windSpeed}</p>
                             </li>
                         </ul>
                     </section>
                 </section>
-                <section className="map-container">
-                    <div className="map">
+                <section className={styles.map_container}>
+                    <div className={styles.map}>
                         {data && (
                             <WeatherMap
                                 lat={data.latitude}
@@ -220,24 +217,24 @@ export function Weather() {
                     </div>
                 </section>
             </article>
-            <article className="chart-container">
+            <article className={styles.chart_container}>
                 <h3 className="chart-container_h3">Hourly Forecast</h3>
                 <div className="chart">
                     <HourlyChart data={data?.hourly} />
                 </div>
             </article>
-            <article className="forecast-container">
-                <h3 className="forecast_h3">Daily Forecast</h3>
-                <div className="forecast">
-                    <ul className="forecast_ul">
+            <article className={styles.forecast_container}>
+                <h3 className={styles.forecast_h3}>Daily Forecast</h3>
+                <div className={styles.forecast}>
+                    <ul className={styles.forecast_ul}>
                         {data?.daily.map((day) => (
-                            <li key={day.day} className="forecast_li">
-                                <strong className="forecast-day">
+                            <li key={day.day} className={styles.forecast_li}>
+                                <strong className={styles.forecast_day}>
                                     {day.weekday} {day.day.slice(5, 7)}/
                                     {day.day.slice(8, 10)}
                                 </strong>
                                 <img
-                                    className="forecast-icon"
+                                    className={styles.forecast_icon}
                                     title={
                                         getIconUrl(data?.today.weathercode || 0)
                                             .alt
@@ -251,17 +248,17 @@ export function Weather() {
                                         getIconUrl(data?.today.weathercode).alt
                                     }
                                 />
-                                <div className="forecast-temp">
+                                <div className={styles.forecast_temp}>
                                     <span>🌡️</span>
-                                    <span className="forecast-temp-max">
+                                    <span className={styles.forecast_tempMax}>
                                         {day.max}°C
                                     </span>{" "}
                                     <span>🌡</span>
-                                    <span className="forecast-temp-min">
+                                    <span className={styles.forecast_tempMin}>
                                         {day.min}°C
                                     </span>
                                 </div>
-                                <div className="forecast-rain">
+                                <div className={styles.forecast_rain}>
                                     <span>💧</span>
                                     <span>{day.precipitationProbability}%</span>
                                 </div>
